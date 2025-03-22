@@ -1,0 +1,27 @@
+Ans 1) db.collection.find({ item: "Mochas" })
+ans 2)db.collection.find({ price: { $lt: 15 } })
+ans3)SELECT * FROM table_name WHERE column_name < 10 OR column_name > 20;
+ans 4) db.collection.find({ quantity: { $exists: true } })
+Ans 5) db.collection.find({ color: "white" })
+Ans 6) const User = require('./models/User');
+User.updateOne({ name: "xTablet" }, { $set: { ram: 24 } })
+    .then(result => console.log(result))
+    .catch(err => console.error(err));
+Ans7)db.products.find({}, { spec: 1, _id: 0 })
+ans8)db.products.find().sort({ price: -1 })
+ans9) db.products.find().skip(1).limit(2)
+ans10)db.users.find({
+  name: { $regex: /^S/, $options: "i" },  // Name starts with 'S' (case-insensitive)
+  price: { $gt: 700 }  // Price greater than 700
+});
+ans 11) db.items.aggregate([
+  {
+    $group: {
+      _id: null,
+      totalPrice: { $sum: { $multiply: ["$price", "$quantity"] } }
+    }
+  }
+])
+
+
+
