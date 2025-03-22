@@ -22,6 +22,20 @@ ans 11) db.items.aggregate([
     }
   }
 ])
+ans 12) db.collection.aggregate([
+  {
+    $project: {
+      _id: 0,
+      sizes: {
+        $map: {
+          input: "$items",
+          as: "item",
+          in: "$$item.size"
+        }
+      }
+    }
+  }
+])
 
 
 
